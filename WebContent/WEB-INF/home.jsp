@@ -15,7 +15,7 @@
 			<c:forEach items="${ news }" var="item">
 				<c:out value="${ item.title }"/> </br>
 				<c:out value="${ item.lastModificationUser.name }"/> - <c:out value="${ item.creationDate }"/></br>
-				<c:out value="${ item.content }"/> </br> </br>
+				<c:out value="${ item.content }"/> </br> --------------------------- </br></br>
 			</c:forEach>
 		</p>
 	</section>

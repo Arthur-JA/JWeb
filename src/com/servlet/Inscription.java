@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.Database.DAOUser;
 import com.beans.User;
 
 /**
@@ -35,10 +36,13 @@ public class Inscription extends HttpServlet {
 		String email = request.getParameter("email");
 		
 		HttpSession session = request.getSession();
+		session.setAttribute("id", session.getAttribute("id") == null ? 0 : (int)session.getAttribute("id") + 1);
 		session.setAttribute("login", login);
 		session.setAttribute("password", password);
 		session.setAttribute("email", email);
-		User user = new User(login, User.Role.USER, email, password);
+		User user = new User((int)session.getAttribute("id"), login, User.Role.USER, email, password);
+		DAOUser.addUser(user);
+		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/inscription.jsp").forward(request, response);
 		
 	}

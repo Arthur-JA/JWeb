@@ -11,11 +11,15 @@
 	
 	<section>
 	</section>
+		</body></br>
 		<form method="post">
-			Write a new </br>
-			<input type="text" placeholder="Title"/> </br>
-			<textarea name="content" placeholder="Content"></textarea>
+			Write a new </br></br>
+			<input type="text" placeholder="Title"/> </br> </br>
+			<textarea rows="8" cols="50" name="content" placeholder="Content"></textarea> </br> </br>
+			<input type="submit" value="Post"/>
 		</form>
+		<c:forEach items="" var="user">
+		</c:forEach>
 	<footer>
 	</footer>
 </html>
