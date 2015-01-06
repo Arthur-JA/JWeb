@@ -18,5 +18,5 @@
 	<li><a href="/JWeb/Inscription">Inscription</a></li>
 	<li><a href="/JWeb/">Home</a></li>
 	<li><a href="/JWeb/Products">Products</a></li>
-	<li><a href="/JWeb/Admin">Admin</a></li>
+	<li><a href="/JWeb/Admin/">Admin</a></li>
 </ul>
