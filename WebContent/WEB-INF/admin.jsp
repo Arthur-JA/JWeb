@@ -13,12 +13,16 @@
 	</section>
 		</body></br>
 		<form method="post">
-			Write a new </br></br>
+			Write a news </br></br>
 			<input type="text" name="title" placeholder="Title"/> </br> </br>
 			<textarea rows="8" cols="50" name="content" placeholder="Content"></textarea> </br> </br>
 			<input type="submit" value="Post"/>
 		</form>
-		<c:forEach items="" var="user">
+		</br></br></br>
+		Users :
+		</br></br>
+		<c:forEach items="${ users }" var="user">
+			<c:out value="${ user.name }"/> - <c:out value="${ user.email }"/> - <c:out value="${ user.registrationDate }"/> - <c:out value="${ user.role }"/> </br></br>
 		</c:forEach>
 	<footer>
 	</footer>

@@ -1,6 +1,7 @@
 package com.servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +14,7 @@ import com.Database.DAONew;
 import com.Database.DAOUser;
 import com.beans.News;
 import com.beans.User;
+import com.beans.User.Role;
 
 /**
  * Servlet implementation class Admin
@@ -33,6 +35,13 @@ public class Admin extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if (request.getSession().getAttribute("isAdmin") == null || (boolean)request.getSession().getAttribute("isAdmin") == false) {
+			response.sendRedirect("/JWeb/");
+			return;
+		}
+		
+		List<User> users = DAOUser.getUserList();
+		request.setAttribute("users", users);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/admin.jsp").forward(request, response);
 	}
 

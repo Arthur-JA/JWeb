@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import com.Database.DAOUser;
 import com.beans.User;
+import com.beans.User.Role;
 
 /**
  * Servlet implementation class Inscription
@@ -32,13 +33,16 @@ public class Inscription extends HttpServlet {
 		String login = request.getParameter("login");
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
+		Role role = request.getParameter("role").equals("User") ? Role.USER : Role.ADMIN;
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("userid", session.getAttribute("userid") == null ? 0 : (int)session.getAttribute("userid") + 1);
 		session.setAttribute("login", login);
 		session.setAttribute("password", password);
 		session.setAttribute("email", email);
-		User user = new User((int)session.getAttribute("userid"), login, User.Role.USER, email, password);
+		User user = new User((int)session.getAttribute("userid"), login, role, email, password);
+		System.out.println(user.getRole());
+		session.setAttribute("isAdmin", user.getRole() == Role.ADMIN);
 		DAOUser.addUser(user);
 		
 		response.sendRedirect("/JWeb/Inscription/");

@@ -20,6 +20,10 @@
 						<label for="login">Login</label> <input type="text" name="login" id="login" /></br>
        					<label for="password">Password</label> <input type="password" name="password" id="password" /></br>
        					<label for="email">Email</label> <input type="email" name="email" id="email" /></br>
+       					Role : <select name="role" size ="1">
+       						<option>User
+       						<option>Admin
+       					</select></br>
        					<input type="submit" value="Login"/>
 					</p>
 				</form>

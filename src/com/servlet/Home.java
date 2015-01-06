@@ -37,17 +37,13 @@ public class Home extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if (request.getParameter("state") != null && request.getParameter("state").equals("logout"))
+		if (request.getParameter("state") != null && request.getParameter("state").equals("logout")) {
 			request.getSession().removeAttribute("login");
-		User user = new User("Toto", User.Role.USER, "caca@epitech.eu", "testmdp");
-		List<News> newsl = DAONew.getNewsList();
-		List<News> news = new ArrayList<News>();
-		
-		news.add(new News("Vive le JWeb", "C tro b1", user));
-		news.add(new News("Vive le JWeb", "C tro b1", user));
-		news.add(new News("Vive le JWeb", "C tro b1", user));
-		
-		request.setAttribute("news", newsl);
+			request.getSession().removeAttribute("password");
+			request.getSession().removeAttribute("isAdmin");			
+		}
+		List<News> news = DAONew.getNewsList();
+		request.setAttribute("news", news);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
 	}
 
@@ -58,12 +54,15 @@ public class Home extends HttpServlet {
 		String login = request.getParameter("login");
 		String password = request.getParameter("password");
 		
-		if (DAOUser.getUser(login, password) != null) {
+		User user;
+		if ((user = DAOUser.getUser(login, password)) != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("login", login);
 			session.setAttribute("password", password);
+			session.setAttribute("isAdmin", user.getRole() == Role.ADMIN);
 		}
-		
-		this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
+			
+		response.sendRedirect("/JWeb/");
+		//this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
 	}
 }
