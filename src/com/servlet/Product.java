@@ -1,30 +1,23 @@
 package com.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.beans.Comment;
-import com.beans.Product;
-import com.beans.User;
-
 /**
- * Servlet implementation class Products
+ * Servlet implementation class Product
  */
-@WebServlet("/Products")
-public class Products extends HttpServlet {
+@WebServlet("/Product")
+public class Product extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Products() {
+    public Product() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,19 +26,7 @@ public class Products extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		User u = new User("JeanClaude", User.Role.USER);
-		List<Comment> comments = new ArrayList<Comment>();
-		for (int i = 0; i < 5; i++)
-			comments.add(new Comment("C'est tres tres bien on se regale avec ca je ne saurais que le recommender.", u));
-		List<Product>	products = new ArrayList<Product>();
-		for (int i = 0; i < 10; i++) {
-			Product p = new Product("Product" + i, i, "Its product" + i + ". Very good!");
-			p.setComments(comments);
-			products.add(p);
-		}
-			
-		request.setAttribute("products", products);
-		this.getServletContext().getRequestDispatcher("/WEB-INF/products.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/product.jsp").forward(request, response);
 	}
 
 	/**

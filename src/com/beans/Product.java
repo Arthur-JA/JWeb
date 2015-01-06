@@ -9,6 +9,12 @@ public class Product {
 	private String			description = "";
 	private List<Comment>	comments = new ArrayList<Comment>();
 	
+	public Product(String n, float p, String desc) {
+		name = n;
+		price = p;
+		description = desc;
+	}
+	
 	public String getName() {
 		return name;
 	}

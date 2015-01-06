@@ -3,7 +3,7 @@
 		<p>
 			<c:if test="${!empty sessionScope.login }">
 				Connected as ${ sessionScope.login } 
-				<a href="">Log out</a>
+				<a href="/JWeb/">Log out</a>
 			</c:if>
 			<c:if test="${empty sessionScope.login }">
 				<form method="post" action="/JWeb/">

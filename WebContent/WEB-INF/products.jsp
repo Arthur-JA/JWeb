@@ -5,7 +5,22 @@
 <title>Products</title>
 </head>
 <body>
-	<%@ include file="menu.jsp" %>
-
-</body>
+	<header>
+		<%@ include file="menu.jsp" %>
+	</header>
+	
+	<section>
+		<p>
+			<c:forEach items="${ products }" var="item">
+				<c:out value="${ item.name }"/> -  
+				<c:out value="${ item.price }"/> </br> Euros
+				<c:out value="${ item.description }"/> </br>
+				<form action="/JWeb/Product"> <input type="submit" value="Info"/> </form> 
+				</br></br>
+			</c:forEach>
+		</p>
+	</section>
+	
+	<footer>
+	</footer>
 </html>

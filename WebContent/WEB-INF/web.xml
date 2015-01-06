@@ -15,15 +15,6 @@
     <url-pattern>/</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>Register</servlet-name>
-    <servlet-class>com.servlet.Register</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Register</servlet-name>
-    <url-pattern>/Register/</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
     <servlet-name>Products</servlet-name>
     <servlet-class>com.servlet.Products</servlet-class>
   </servlet>
@@ -39,5 +30,14 @@
   <servlet-mapping>
     <servlet-name>Admin</servlet-name>
     <url-pattern>/Admin/</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>Product</servlet-name>
+    <servlet-class>com.servlet.Product</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Product</servlet-name>
+    <url-pattern>/Product/</url-pattern>
   </servlet-mapping>
 </web-app>
