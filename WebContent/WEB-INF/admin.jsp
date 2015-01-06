@@ -5,6 +5,17 @@
 <title>Admin</title>
 </head>
 <body>
-	<%@ include file="menu.jsp" %>
-</body>
+	<header>
+		<%@ include file="menu.jsp" %>
+	</header>
+	
+	<section>
+	</section>
+		<form method="post">
+			Write a new </br>
+			<input type="text" placeholder="Title"/> </br>
+			<textarea name="content" placeholder="Content"></textarea>
+		</form>
+	<footer>
+	</footer>
 </html>

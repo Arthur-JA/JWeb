@@ -4,9 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Product</title>
 </head>
 <body>
-
-</body>
+	<header>
+		<%@ include file="menu.jsp" %>
+	</header>
+	
+	<section>
+	</section>
+	
+	<footer>
+	</footer>
 </html>
