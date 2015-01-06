@@ -35,7 +35,6 @@ public class Home extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.getSession().removeAttribute("login");
-		System.out.println(request.getAttribute("login"));
 		User user = new User("Toto", User.Role.USER, "caca@epitech.eu", "testmdp");
 		List<News> news = new ArrayList<News>();
 		

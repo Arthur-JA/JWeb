@@ -33,7 +33,7 @@ public class Products extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		User u = new User("JeanClaude", User.Role.USER);
+		User u = new User("JeanClaude", User.Role.USER, "aaaa@epitech.eu", "aaa");
 		List<Comment> comments = new ArrayList<Comment>();
 		for (int i = 0; i < 5; i++)
 			comments.add(new Comment("C'est tres tres bien on se regale avec ca je ne saurais que le recommender.", u));

@@ -10,15 +10,21 @@
 	</header>
 
 	<section>
-		<form method="post" action="/">
-			<p>
-       			<label for="login">Login</label> : <input type="text" name="login" id="login" /></br>
-       			<label for="password">Password</label> : <input type="password" name="password" id="password" /></br>
-       			<label for="email">Email</label> : <input type="email" name="email" id="email" /></br>
-       			<input type="submit" value="Login"/>
-       			
-   			</p>
-		</form>
+		
+			<c:if test="${!empty sessionScope.login }">
+				You registered correctly ${ sessionScope.login }
+			</c:if>
+			<c:if test="${empty sessionScope.login }">
+				<form method="post" action="#">
+					<p>
+						<label for="login">Login</label> <input type="text" name="login" id="login" /></br>
+       					<label for="password">Password</label> <input type="password" name="password" id="password" /></br>
+       					<label for="email">Email</label> <input type="email" name="email" id="email" /></br>
+       					<input type="submit" value="Login"/>
+					</p>
+				</form>
+			</c:if>
+			 	       			
 	</section>
 
 	<footer>
