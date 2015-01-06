@@ -36,7 +36,7 @@ public class Home extends HttpServlet {
 		
 		request.getSession().removeAttribute("login");
 		System.out.println(request.getAttribute("login"));
-		User user = new User("Toto", User.Role.USER);
+		User user = new User("Toto", User.Role.USER, "caca@epitech.eu", "testmdp");
 		List<News> news = new ArrayList<News>();
 		
 		news.add(new News("Vive le JWeb", "C tro b1", user));

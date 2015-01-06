@@ -13,16 +13,28 @@ public class User {
 	
 	private String	name = "";
 	private String	registrationDate =  "";
+	private String	email = "";
 	private Role	role = Role.USER;
+	private String	password = "";
 	
-	public User(String n, Role r) {
+	public User(String n, Role r, String e, String p) {
 		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm");
 		Date date = Calendar.getInstance().getTime();
 		registrationDate = df.format(date);
 		name = n;
 		role = r;
+		email = e;
+		password = p;
 	}
 	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getName() {
 		return name;
 	}
