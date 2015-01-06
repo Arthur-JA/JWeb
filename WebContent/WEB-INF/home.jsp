@@ -4,10 +4,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Home</title>
 </head>
-<%@ include file="menu.jsp" %>
+
 <body>
-	<p>
-		JWeb c'est d'la merde
-	</p>
+	<header>
+		<%@ include file="menu.jsp" %>
+	</header>
+	
+	<section>
+		<p>
+			<c:forEach items="${ news }" var="item">
+				<c:out value="${ item.title }"/> </br>
+				<c:out value="${ item.lastModificationUser.name }"/> - <c:out value="${ item.creationDate }"/></br>
+				<c:out value="${ item.content }"/> </br> </br>
+			</c:forEach>
+		</p>
+	</section>
+	
+	<footer>
+	</footer>
 </body>
 </html>

@@ -14,7 +14,6 @@
     <servlet-name>Home</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>Register</servlet-name>
     <servlet-class>com.servlet.Register</servlet-class>
@@ -23,13 +22,22 @@
     <servlet-name>Register</servlet-name>
     <url-pattern>/Register/</url-pattern>
   </servlet-mapping>
-  
-    <servlet>
-    <servlet-name>Inscription</servlet-name>
-    <servlet-class>com.servlet.Inscription</servlet-class>
+
+  <servlet>
+    <servlet-name>Products</servlet-name>
+    <servlet-class>com.servlet.Products</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Inscription</servlet-name>
-    <url-pattern>/Inscription/</url-pattern>
+    <servlet-name>Products</servlet-name>
+    <url-pattern>/Products/</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>Admin</servlet-name>
+    <servlet-class>com.servlet.Admin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Admin</servlet-name>
+    <url-pattern>/Admin/</url-pattern>
   </servlet-mapping>
 </web-app>
