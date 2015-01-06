@@ -14,7 +14,7 @@
 		</body></br>
 		<form method="post">
 			Write a new </br></br>
-			<input type="text" placeholder="Title"/> </br> </br>
+			<input type="text" name="title" placeholder="Title"/> </br> </br>
 			<textarea rows="8" cols="50" name="content" placeholder="Content"></textarea> </br> </br>
 			<input type="submit" value="Post"/>
 		</form>

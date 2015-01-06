@@ -29,22 +29,19 @@ public class Inscription extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-				
 		String login = request.getParameter("login");
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("id", session.getAttribute("id") == null ? 0 : (int)session.getAttribute("id") + 1);
+		session.setAttribute("userid", session.getAttribute("userid") == null ? 0 : (int)session.getAttribute("userid") + 1);
 		session.setAttribute("login", login);
 		session.setAttribute("password", password);
 		session.setAttribute("email", email);
-		User user = new User((int)session.getAttribute("id"), login, User.Role.USER, email, password);
+		User user = new User((int)session.getAttribute("userid"), login, User.Role.USER, email, password);
 		DAOUser.addUser(user);
 		
-		this.getServletContext().getRequestDispatcher("/WEB-INF/inscription.jsp").forward(request, response);
-		
+		response.sendRedirect("/JWeb/Inscription/");
 	}
 
 }

@@ -40,10 +40,7 @@ public class User {
 	}
 	
 	public User(int id, String n, String d, String e, Role r, String p) {
-		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm");
-		Date date = Calendar.getInstance().getTime();
 		this.id = id;
-		registrationDate = df.format(date);
 		name = n;
 		registrationDate = d;
 		role = r;

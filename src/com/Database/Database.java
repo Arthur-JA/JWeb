@@ -66,12 +66,12 @@ public class Database {
 
 	      stmt = c.createStatement();
 	      String sql = "CREATE TABLE IF NOT EXISTS USER " +
-	                   "( "+ USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+	                   "( "+ USER_ID + " INTEGER PRIMARY KEY, " +
 	                   USER_NAME + "     			TEXT    NOT NULL, " + 
-	                   USER_PASSWD + "         		TEXT    NOT NULL, " + 
+	                   USER_PASSWD + "         		TEXT    NOT NULL, " +
 	                   USER_EMAIL + "        		CHAR(50), " +
-	                   USER_ROLE + "				INT, " +			
-	                   USER_DATE + "   				CHAR(50));"; 
+	                   USER_ROLE + "				INT, " +
+	                   USER_DATE + "   				CHAR(50));";
 	      stmt.executeUpdate(sql);
 	      
 	      sql = 	"CREATE TABLE IF NOT EXISTS PRODUCT " +
@@ -91,7 +91,7 @@ public class Database {
 	      stmt.executeUpdate(sql);
   
 	      sql =		"CREATE TABLE IF NOT EXISTS COMMENT " +
-	    		  	"( " + COMMENT_ID + "	INTEGER PRIMARY KEY AUTOINCREMENT, " +
+	    		  	"( " + COMMENT_ID + "	INTEGER PRIMARY KEY, " +
 	    		  	COMMENT_CONTENT + "		TEXT, " +
 	    		  	COMMENT_DATE + "	 	CHAR(50), " +
 	    		  	COMMENT_AUTHOR + "		INT				NOT NULL, " +

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.Database.DAONew;
 import com.Database.DAOUser;
 import com.Database.Database;
 import com.beans.News;
@@ -36,17 +37,17 @@ public class Home extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Database db = Database.getInstance();
 		if (request.getParameter("state") != null && request.getParameter("state").equals("logout"))
 			request.getSession().removeAttribute("login");
 		User user = new User("Toto", User.Role.USER, "caca@epitech.eu", "testmdp");
+		List<News> newsl = DAONew.getNewsList();
 		List<News> news = new ArrayList<News>();
 		
 		news.add(new News("Vive le JWeb", "C tro b1", user));
 		news.add(new News("Vive le JWeb", "C tro b1", user));
 		news.add(new News("Vive le JWeb", "C tro b1", user));
 		
-		request.setAttribute("news", news);
+		request.setAttribute("news", newsl);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
 	}
 

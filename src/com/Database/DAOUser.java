@@ -32,6 +32,7 @@ public class DAOUser {
 			e.printStackTrace();
 			return null;
 		}
+		Database.getInstance().closeConnection();
 		return userList;
 	}
 	
@@ -45,6 +46,36 @@ public class DAOUser {
 			stmt.executeUpdate(sql);
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+		Database.getInstance().closeConnection();
+	}
+	
+	public static User getUser(int userId) {
+		Statement stmt;
+		
+		if ((stmt = Database.getInstance().getStatement()) == null)
+			return null;
+		String sql = "SELECT * FROM USER WHERE " + Database.USER_ID + " = " + userId + ";";
+		ResultSet rs;
+		try {
+			rs = stmt.executeQuery(sql);
+			if (rs.next()) {
+				int id = rs.getInt(Database.USER_ID);
+				String n = rs.getString(Database.USER_NAME);
+				String date = rs.getString(Database.USER_DATE);
+				String email = rs.getString(Database.USER_EMAIL);
+				Role role = Role.values()[rs.getInt(Database.USER_ROLE)];
+				String passwd = rs.getString(Database.USER_PASSWD);
+				Database.getInstance().closeConnection();
+				return new User(id, n, date, email, role, passwd);
+			} else {
+				Database.getInstance().closeConnection();
+				return null;
+			}
+		} catch (SQLException e) {
+			Database.getInstance().closeConnection();
+			e.printStackTrace();
+			return null;
 		}
 	}
 	
@@ -64,10 +95,14 @@ public class DAOUser {
 				String email = rs.getString(Database.USER_EMAIL);
 				Role role = Role.values()[rs.getInt(Database.USER_ROLE)];
 				String passwd = rs.getString(Database.USER_PASSWD);
+				Database.getInstance().closeConnection();
 				return new User(id, n, date, email, role, passwd);
-			} else
+			} else {
+				Database.getInstance().closeConnection();
 				return null;
+			}
 		} catch (SQLException e) {
+			Database.getInstance().closeConnection();
 			e.printStackTrace();
 			return null;
 		}
