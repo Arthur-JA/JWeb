@@ -1,6 +1,29 @@
-<ul>
-	<li>
-		<p>
+<style type="text/css">
+h1 {
+	color:blue;
+	font-size:60px;
+	text-decoration: overline;
+	margin-left:50px;
+}
+div {
+	margin-left:1100px;
+}
+a {
+	font-size:25px;
+	margin-left:50px;
+}
+p {
+	margin-left:50px;
+}
+h2 {
+	margin-left:50px;
+	text-decoration: underline;
+}
+</style>
+
+
+<h1>TossaShop</h1>
+<div>
 			<c:if test="${!empty sessionScope.login }">
 				Connected as ${ sessionScope.login } 
 				<a href="/JWeb?state=logout">Log out</a>
@@ -13,14 +36,16 @@
 				</form>
 				
 			</c:if>
-		</p>
-	</li>
+</div>
+<nav>
+
 	<c:if test="${ empty login }">
-	<li><a href="/JWeb/Inscription">Inscription</a></li>
+	<a href="/JWeb/Inscription">Inscription</a>
 	</c:if>
-	<li><a href="/JWeb/">Home</a></li>
-	<li><a href="/JWeb/Products">Products</a></li>
+	<a href="/JWeb/">Home</a>
+	<a href="/JWeb/Products">Products</a>
 	<c:if test="${ isAdmin eq true }">
-	<li><a href="/JWeb/Admin/">Admin</a></li>
+	<a href="/JWeb/Admin/">Admin</a>
 	</c:if>
-</ul>
+
+</nav>

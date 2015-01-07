@@ -13,7 +13,7 @@
 	<section>
 		<p>
 			</br>
-			News </br></br>
+			<h2>NEWS</h2> </br></br>
 			<c:forEach items="${ news }" var="item">
 				<c:out value="${ item.title }"/> </br>
 				<c:out value="${ item.lastModificationUser.name }"/> - <c:out value="${ item.creationDate }"/></br>
