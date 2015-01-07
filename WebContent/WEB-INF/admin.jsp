@@ -10,8 +10,6 @@
 	</header>
 	
 	<section>
-	</section>
-		</body></br>
 		<form method="post">
 			Write a news </br></br>
 			<input type="text" name="title" placeholder="Title"/> </br> </br>
@@ -32,6 +30,7 @@
 			<textarea rows="8" cols="50" name="description" placeholder="Description"></textarea> </br> </br>
 			<input type="submit" value="Add"/>
 		</form>
-	<footer>
-	</footer>
+	</section>
+</body>
+		
 </html>
