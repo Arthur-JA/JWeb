@@ -11,11 +11,11 @@
 	
 	<section>
 		<p>
-			<c:forEach items="${ products }" var="item" varStatus="status">
+			<c:forEach items="${ products }" var="item">
 				<c:out value="${ item.name }"/> -  
 				<c:out value="${ item.price }"/> Euros </br>
 				<c:out value="${ item.description }"/> </br>
-				<a href="/JWeb/Product?id=${ status.count }"><button>Info</button></a>
+				<a href="/JWeb/Product?id=${ item.id }"><button>Info</button></a>
 				</br></br>
 			</c:forEach>
 		</p>

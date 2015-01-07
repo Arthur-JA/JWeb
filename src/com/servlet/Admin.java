@@ -1,6 +1,7 @@
 package com.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -11,10 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.Database.DAONew;
+import com.Database.DAOProduct;
 import com.Database.DAOUser;
 import com.beans.News;
+import com.beans.Product;
 import com.beans.User;
-import com.beans.User.Role;
+import com.beans.Comment;
 
 /**
  * Servlet implementation class Admin
@@ -49,15 +52,25 @@ public class Admin extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		if (title.length() > 0 && content.length() > 0) {
-			HttpSession session = request.getSession();
+		if (title != null && content != null && title.length() > 0 && content.length() > 0) {
 			session.setAttribute("newsid", session.getAttribute("newsid") == null ? 0 : (int)session.getAttribute("newsid") + 1);
 			User user = DAOUser.getUser((String)session.getAttribute("login"), (String)session.getAttribute("password"));
 			DAONew.addNews(new News((int)session.getAttribute("newsid"), title, content, user));
 			response.sendRedirect("/JWeb/Admin/");
 		}
+		
+		String productName = request.getParameter("name");
+		float price = Float.valueOf(request.getParameter("price"));
+		String description = request.getParameter("description");
+		if (productName != null && productName.length() > 0) {
+			session.setAttribute("productid", session.getAttribute("productid") == null ? 0 : (int)session.getAttribute("productid") + 1);
+			DAOProduct.addProduct(new Product((int)session.getAttribute("productid"), productName, price, description == null ? "" : description, new ArrayList<Comment>()));
+		}
+		response.sendRedirect("/JWeb/Admin/");
 	}
 
 }

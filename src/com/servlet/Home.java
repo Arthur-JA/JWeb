@@ -51,7 +51,7 @@ public class Home extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String login = request.getParameter("login");
+		String login = request.getParameter("login").trim();
 		String password = request.getParameter("password");
 		
 		User user;
@@ -63,6 +63,5 @@ public class Home extends HttpServlet {
 		}
 			
 		response.sendRedirect("/JWeb/");
-		//this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
 	}
 }

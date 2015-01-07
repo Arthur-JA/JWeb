@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.Database.DAOProduct;
 import com.beans.Comment;
 import com.beans.Product;
 import com.beans.User;
@@ -43,8 +44,8 @@ public class Products extends HttpServlet {
 			p.setComments(comments);
 			products.add(p);
 		}
-			
-		request.setAttribute("products", products);
+		List<Product> plist = DAOProduct.getProductList();
+		request.setAttribute("products", plist);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/products.jsp").forward(request, response);
 	}
 

@@ -30,9 +30,9 @@ public class Inscription extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String login = request.getParameter("login");
+		String login = request.getParameter("login").trim();
 		String password = request.getParameter("password");
-		String email = request.getParameter("email");
+		String email = request.getParameter("email").trim();
 		Role role = request.getParameter("role").equals("User") ? Role.USER : Role.ADMIN;
 		
 		HttpSession session = request.getSession();

@@ -24,6 +24,14 @@
 		<c:forEach items="${ users }" var="user">
 			<c:out value="${ user.name }"/> - <c:out value="${ user.email }"/> - <c:out value="${ user.registrationDate }"/> - <c:out value="${ user.role }"/> </br></br>
 		</c:forEach>
+		</br></br></br>
+		Add new product :
+		<form method="post">
+			<input type="text" name="name" placeholder="Name"/> </br> </br>
+			<input type="number" name="price" placeholder="Price"/> Euros </br> </br>
+			<textarea rows="8" cols="50" name="description" placeholder="Description"></textarea> </br> </br>
+			<input type="submit" value="Add"/>
+		</form>
 	<footer>
 	</footer>
 </html>

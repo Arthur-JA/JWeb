@@ -27,7 +27,7 @@ public class Database {
 	public static String	COMMENT_CONTENT	= 	"CONTENT";
 	public static String	COMMENT_DATE	= 	"CREATIONDATE";
 	public static String	COMMENT_AUTHOR	= 	"AUTHOR";
-	public static String	COMMENT_NEW		= 	"NEW";
+	public static String	COMMENT_PRODUCT	= 	"PRODUCT";
 	
 	public static Database getInstance() {
 		if (singleton == null) {
@@ -95,9 +95,9 @@ public class Database {
 	    		  	COMMENT_CONTENT + "		TEXT, " +
 	    		  	COMMENT_DATE + "	 	CHAR(50), " +
 	    		  	COMMENT_AUTHOR + "		INT				NOT NULL, " +
-	    		  	COMMENT_NEW + "			INT				NOT NULL, " +
+	    		  	COMMENT_PRODUCT + "		INT				NOT NULL, " +
 	    		  	"FOREIGN KEY(AUTHOR) REFERENCES USER(ID), " +
-	    		  	"FOREIGN KEY(NEW) REFERENCES NEW(ID));";
+	    		  	"FOREIGN KEY(PRODUCT) REFERENCES PRODUCT(ID));";
 	      stmt.executeUpdate(sql);
 	      
 	      stmt.close();

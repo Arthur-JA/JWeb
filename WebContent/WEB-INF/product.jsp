@@ -13,7 +13,24 @@
 	
 	<section>
 	</section>
-	
+		<c:out value="${ product.name }"/> - <c:out value="${ product.price }"/> Euros </br></br>
+		<c:out value="${ product.description }"/> </br></br></br></br>
+		Comments:
+		</br></br></br>
+		<c:forEach items="${ product.comments }" var="comment">
+			<c:out value="${ comment.author.name }"/> - <c:out value="${ comment.creationDate }"/></br></br>
+			<c:out value="${ comment.content }"/></br></br></br></br>
+		</c:forEach>
+		<c:if test="${!empty sessionScope.login }">
+			<form method = "post">
+				<textarea rows="5" cols="50" name="comment" placeholder="Comment here"></textarea> </br> </br>
+				<input type="submit" value="Post"/>
+			</form>
+		</c:if>
+		<c:if test="${empty sessionScope.login }">
+			You need to login to comment.
+		</c:if>
 	<footer>
 	</footer>
+	</body>
 </html>
